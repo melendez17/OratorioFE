@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { useHistory } from 'react-router-dom';
 import img1 from "../../assets/Landing/casa.png"
 import { Link } from 'react-router-dom';

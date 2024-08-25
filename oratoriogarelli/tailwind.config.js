@@ -13,7 +13,8 @@ module.exports = {
         orange: '#FC8A0E',
         aquamarine: '#06B293',
         green: '#48D93F',
-        // white: '#FAF9F6',
+        white2: '#FAF9F6',
+        gray: '#E9EEF4',
       }),
       fontFamily: {
         Cunia: ['Cunia', 'sans-serif'],
@@ -26,8 +27,9 @@ module.exports = {
         pink: '#D2055F',
         orange: '#FC8A0E',
         aquamarine: '#06B293',
-        // white: '#FAF9F6',
+        white2: '#FAF9F6',
         green: '#48D93F',
+        gray: '#E9EEF4',
       },
     },
     plugins: [
