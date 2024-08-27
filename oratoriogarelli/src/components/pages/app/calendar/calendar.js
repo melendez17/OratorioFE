@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 const getDaysInMonth = (month, year) => {
-    return new Date(year, month, 0).getDate();
+    return new Date(year, month + 1, 0).getDate(); // Ajuste: mes + 1
 };
 
 const getFirstDayOfMonth = (month, year) => {
-    return new Date(year, month - 1, 1).getDay();
+    return new Date(year, month, 1).getDay(); // Ajuste: mes base 0
 };
 
 const monthNames = [
@@ -14,7 +14,7 @@ const monthNames = [
 ];
 
 const Calendar = () => {
-    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
+    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
     const daysInMonth = getDaysInMonth(currentMonth, currentYear);
@@ -25,11 +25,11 @@ const Calendar = () => {
         5: "Evento 2",
         8: "Evento 3",
         // Agrega más eventos según sea necesario
-      };
+    };
 
     const handlePrevMonth = () => {
-        if (currentMonth === 1) {
-            setCurrentMonth(12);
+        if (currentMonth === 0) {
+            setCurrentMonth(11);
             setCurrentYear(currentYear - 1);
         } else {
             setCurrentMonth(currentMonth - 1);
@@ -37,8 +37,8 @@ const Calendar = () => {
     };
 
     const handleNextMonth = () => {
-        if (currentMonth === 12) {
-            setCurrentMonth(1);
+        if (currentMonth === 11) {
+            setCurrentMonth(0);
             setCurrentYear(currentYear + 1);
         } else {
             setCurrentMonth(currentMonth + 1);
@@ -47,10 +47,14 @@ const Calendar = () => {
 
     const renderDays = () => {
         const days = [];
+        // Ajuste: Corrigiendo el primer día de la semana para que comience en lunes
+        const adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
+
         // Add empty cells for the days before the first day of the month
-        for (let i = 0; i < firstDay; i++) {
+        for (let i = 0; i < adjustedFirstDay; i++) {
             days.push(<td key={`empty-${i}`} className="pt-2"></td>);
         }
+
         // Add the days of the month
         for (let i = 1; i <= daysInMonth; i++) {
             const hasEvent = events[i] !== undefined;
@@ -59,20 +63,22 @@ const Calendar = () => {
                     <div className="flex flex-col justify-center w-full px-2 py-2 cursor-pointer">
                         <p className="text-base font-medium text-center text-gray-500 dark:text-gray-100">{i}</p>
                         {hasEvent && (
-            <div className="mx-auto">
-              <svg width="8" height="8" className='text-white' xmlns="http://www.w3.org/2000/svg">
-                <circle cx="4" cy="4" r="3" fill="currentColor" />
-              </svg>
-            </div>
-          )}
-          </div>
+                            <div className="mx-auto">
+                                <svg width="8" height="8" className='text-white' xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="4" cy="4" r="3" fill="currentColor" />
+                                </svg>
+                            </div>
+                        )}
+                    </div>
                 </td>
             );
         }
+
         // Add empty cells to ensure the calendar ends on a Saturday (index 6)
         while (days.length % 7 !== 0) {
             days.push(<td key={`empty-end-${days.length}`} className="pt-6"></td>);
         }
+
         return days;
     };
 
@@ -95,7 +101,7 @@ const Calendar = () => {
                             tabIndex="0"
                             className="text-base font-bold text-gray-800 focus:outline-none dark:text-gray-100"
                         >
-                            {`${monthNames[currentMonth - 1]} ${currentYear}`}
+                            {`${monthNames[currentMonth]} ${currentYear}`}
                         </span>
                         <div className="flex items-center">
                             <button

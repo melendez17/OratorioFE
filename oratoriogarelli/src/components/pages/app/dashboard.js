@@ -37,7 +37,7 @@ function Dashboard() {
                 alt=""
                 className="w-10 h-10 rounded-md"
               /> */}
-              {/* <div
+              <div
                 className={`
                     flex justify-between w-full items-center
                     overflow-hidden transition-all py-2 duration-700
@@ -52,9 +52,9 @@ function Dashboard() {
                   </span>
                 </div>
                 <div className="flex items-center justify-center w-10 h-10 font-medium text-white rounded-full bg-pink">
-                  0
+                  3
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
           {/* Oratorianos */}
