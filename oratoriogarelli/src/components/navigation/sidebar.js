@@ -29,12 +29,12 @@ export default function Sidebar() {
     { icon: <Dices />, text: "Actividades", path: "/actividades" },
     { icon: <Users />, text: "Participantes", path: "/participantes" },
     // { icon: <LifeBuoy />, text: "Soporte", path: "/soporte" },
-    { icon: <Settings />, text: "Configuración", path: "/configuracion" },
+    // { icon: <Settings />, text: "Configuración", path: "/configuracion" },
   ];
 
   return (
     <div className="h-screen">
-      <nav className="h-screen w-fit bg-darkblue flex flex-col shadow-xl border-r-2 border-gray">
+      <nav className="flex flex-col h-screen border-r-2 shadow-xl w-fit bg-darkblue border-gray">
         <div
           className={`p-4 pb-2 w-full flex h-fit items-center ${
             expanded ? "w-32 justify-between" : "justify-center"
@@ -70,7 +70,7 @@ export default function Sidebar() {
         </SidebarContext.Provider>
 
         <Link to="/">
-        <div className="border-t flex justify-center items-center p-3">
+        <div className="flex items-center justify-center p-3 border-t">
           <img
             src="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
             alt=""
@@ -114,7 +114,7 @@ function SidebarItem({ icon, text, active, alert, path }) {
           }
       `}
       >
-        <div className="flex text-white justify-center items-center p-3">
+        <div className="flex items-center justify-center p-3 text-white">
           {icon}
           <div
             className={`

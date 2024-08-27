@@ -56,11 +56,11 @@ const Calendar = () => {
             const hasEvent = events[i] !== undefined;
             days.push(
                 <td key={i} className="pt-4">
-                    <div className="px-2 py-2 cursor-pointer flex w-full flex-col justify-center">
-                        <p className="text-base text-center text-gray-500 dark:text-gray-100 font-medium">{i}</p>
+                    <div className="flex flex-col justify-center w-full px-2 py-2 cursor-pointer">
+                        <p className="text-base font-medium text-center text-gray-500 dark:text-gray-100">{i}</p>
                         {hasEvent && (
             <div className="mx-auto">
-              <svg width="8" height="8" className='text-pink' xmlns="http://www.w3.org/2000/svg">
+              <svg width="8" height="8" className='text-white' xmlns="http://www.w3.org/2000/svg">
                 <circle cx="4" cy="4" r="3" fill="currentColor" />
               </svg>
             </div>
@@ -88,12 +88,12 @@ const Calendar = () => {
 
     return (
         <div className="flex items-center justify-start p-4 pb-4">
-            <div className="max-w-sm w-full shadow-lg">
-                <div className="md:p-8 dark:bg-gray-800 bg-white w-full rounded-xl">
-                    <div className="px-4 flex items-center justify-between">
+            <div className="w-full max-w-sm shadow-lg">
+                <div className="w-full bg-white md:p-8 dark:bg-gray-800 rounded-xl">
+                    <div className="flex items-center justify-between px-4">
                         <span
                             tabIndex="0"
-                            className="focus:outline-none text-base font-bold dark:text-gray-100 text-gray-800"
+                            className="text-base font-bold text-gray-800 focus:outline-none dark:text-gray-100"
                         >
                             {`${monthNames[currentMonth - 1]} ${currentYear}`}
                         </span>
@@ -101,7 +101,7 @@ const Calendar = () => {
                             <button
                                 aria-label="calendar backward"
                                 onClick={handlePrevMonth}
-                                className="focus:text-gray-400 hover:text-gray-400 text-gray-800 dark:text-gray-100"
+                                className="text-gray-800 focus:text-gray-400 hover:text-gray-400 dark:text-gray-100"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -111,7 +111,7 @@ const Calendar = () => {
                             <button
                                 aria-label="calendar forward"
                                 onClick={handleNextMonth}
-                                className="focus:text-gray-400 hover:text-gray-400 ml-3 text-gray-800 dark:text-gray-100"
+                                className="ml-3 text-gray-800 focus:text-gray-400 hover:text-gray-400 dark:text-gray-100"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -124,13 +124,13 @@ const Calendar = () => {
                         <table className="w-full">
                             <thead>
                                 <tr>
-                                    <th><div className="w-full flex justify-center"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Lun</p></div></th>
-                                    <th><div className="w-full flex justify-center"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Mar</p></div></th>
-                                    <th><div className="w-full flex justify-center"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Mié</p></div></th>
-                                    <th><div className="w-full flex justify-center"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Jue</p></div></th>
-                                    <th><div className="w-full flex justify-center"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Vie</p></div></th>
-                                    <th><div className="w-full flex justify-center"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Sáb</p></div></th>
-                                    <th><div className="w-full flex justify-center"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Dom</p></div></th>
+                                    <th><div className="flex justify-center w-full"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Lun</p></div></th>
+                                    <th><div className="flex justify-center w-full"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Mar</p></div></th>
+                                    <th><div className="flex justify-center w-full"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Mié</p></div></th>
+                                    <th><div className="flex justify-center w-full"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Jue</p></div></th>
+                                    <th><div className="flex justify-center w-full"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Vie</p></div></th>
+                                    <th><div className="flex justify-center w-full"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Sáb</p></div></th>
+                                    <th><div className="flex justify-center w-full"><p className="text-base font-medium text-center text-gray-800 dark:text-gray-100">Dom</p></div></th>
                                 </tr>
                             </thead>
                             <tbody>

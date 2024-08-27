@@ -10,6 +10,7 @@ import Jornadas from './components/pages/app/jornadas';
 import Inventario from './components/pages/app/inventario';
 import Actividades from './components/pages/app/actividades';
 import Participantes from './components/pages/app/participantes';
+import JornadaDetalle from './components/pages/app/jornadaDetalle';
 // import Navbar from './components/navigation/navbar';
 import './index.css';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Calendario" element={<Calendar />} />
         <Route path="/Jornadas" element={<Jornadas />} />
+        <Route path="/Jornadas/:id" element={<JornadaDetalle />} />
         <Route path="/Inventario" element={<Inventario />} />
         <Route path="/Actividades" element={<Actividades />} />
         <Route path="/Participantes" element={<Participantes />} />
